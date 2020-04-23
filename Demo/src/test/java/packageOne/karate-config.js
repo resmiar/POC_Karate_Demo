@@ -8,7 +8,9 @@ function fn() {
     appId: 'my.app.id',
     appSecret: 'my.secret', 
     someUrlBase: 'https://some-host.com/v1/auth/',
-    anotherUrlBase: 'https://another-host.com/v1/'
+    anotherUrlBase: 'https://another-host.com/v1/',
+    apiURL: 'https://gorest.co.in/public-api',
+    apiKey:'Bearer MdrA7WFOF1QXqEXmSIOYTUjzOa7Iw0oxUZWz'
   };
   if (env == 'stage') {
     // over-ride only those that need to be
