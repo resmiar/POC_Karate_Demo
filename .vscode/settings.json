@@ -1,0 +1,6 @@
+{
+    "karateRunner.karateRunner.default": "_SyncRunner",
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "karateRunner.debugger.serverPortTimeout": 600,
+    "karateRunner.karateCli.overrideKarateRunner": true
+}

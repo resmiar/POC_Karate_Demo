@@ -1,0 +1,17 @@
+{
+    "testAccounts": {
+      "numTransactions": "input[name=numTransactions]",
+      "submit": "#submitButton"
+    },
+    "leftNav": {
+      "home": "{span}Home",
+      "invoices": "{span}Invoices",
+      "transactions": "{span}Transactions"
+    },
+    "transactions": {
+      "addFirst": "#login_field",
+      "descriptionInput": ".description-cell input",
+      "description": ".description-cell .header5",
+      "amount": ".amount-cell input"
+    }
+  }
