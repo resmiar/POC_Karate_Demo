@@ -5,7 +5,7 @@ import com.intuit.karate.junit4.Karate;
 import org.junit.runner.RunWith;
 
 @RunWith(Karate.class)
-@KarateOptions(tags = {"@test123450","~@ignore"})
+@KarateOptions(tags = {"~@ignore"})
 public class UsersRunner {
     
  /*    @Karate.Test

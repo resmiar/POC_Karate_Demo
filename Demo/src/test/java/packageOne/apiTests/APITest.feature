@@ -1,3 +1,4 @@
+@apiTests
 Feature: To verify basic features of the application are working
 
   Background:
@@ -66,18 +67,10 @@ Feature: To verify basic features of the application are working
   @userdataValidation
   Scenario Outline: Verify invalid user data cannot be added
     Given path 'users'
-    When request testData.<user>
+    When request <user>
     And method post
     Then status 200
     * match response['_meta'] contains testData.validationFailMsg
     And match response['_meta'] contains {'code':422}
     Examples:
-      | user   |
-      | UserWithInvalidGender  |
-      | UserWithInvalidEmail    |
-      | UserWithNoFirstName |
-      | UserWithNoLastName |
-      | UserWithNoEmail |
-      | UserWithNoGender |
-      | UserWithInvalidWebsite |
-      | UserWithInvalidStatus |
+      | testData.invalidUsers   |
