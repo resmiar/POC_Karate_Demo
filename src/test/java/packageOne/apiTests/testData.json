@@ -1,0 +1,137 @@
+{
+    "testUser":{
+        "first_name": "testUser",
+        "last_name":"user",
+        "gender":"male",
+        "email":"testUser@test.com"
+    },
+    "testUser1":{
+        "first_name": "xxx",
+        "last_name":"user",
+        "gender":"male",
+        "email":"xxxxx@test.com"
+    },
+    "validationFailMsg":{
+        "message":"Data validation failed. Please check the response body for detailed error messages."
+    },
+    "addUsersuccessMsg":{
+        "message":"OK. Everything worked as expected."
+    },
+    "UserWithInvalidGender":{
+        "first_name": "invaliduser",
+        "last_name":"invaliduser",
+        "gender":"M",
+        "email":"invaliduser@test.com"
+    },
+    "UserWithInvalidEmail":{
+        "first_name": "invaliduser",
+        "last_name":"invaliduser",
+        "gender":"male",
+        "email":"invaliduser"
+    },
+    "UserWithInvalidWebsite":{
+        "first_name": "invaliduser",
+        "last_name": "invaliduser",
+        "gender":"male",
+        "email":"invaliduser@test.com",
+        "dob":"1990-05-05",
+        "phone":"1234567890",
+        "website":"www.mywebsite.com",
+        "address":"xyz street ,Kerala",
+        "status":"active"
+    },
+    "UserWithInvalidStatus":{
+        "first_name": "invaliduser",
+        "last_name": "invaliduser",
+        "gender":"male",
+        "email":"invaliduser@test.com",
+        "dob":"1990-05-05",
+        "phone":"1234567890",
+        "website":"https://www.mywebsite.com",
+        "address":"xyz street ,Kerala",
+        "status":"abcd"
+    },
+    "UserWithAllDetails":{
+        "first_name": "TestUser",
+        "last_name": "TestUser",
+        "gender":"male",
+        "email":"validuser@test.com",
+        "dob":"1990-05-05",
+        "phone":"1234567890",
+        "website":"https://www.mywebsite.com",
+        "address":"xyz street ,Kerala",
+        "status":"active"
+    },
+    "invalidUsers":[
+        {
+            "user":{
+                "first_name": "invaliduser",
+                "last_name":"invaliduser",
+                "gender":"M",
+                "email":"invaliduser@test.com"
+            }
+        },
+        {
+            "user":{
+                "first_name": "invaliduser",
+                "last_name":"invaliduser",
+                "gender":"male",
+                "email":"invaliduser"
+            }
+        },
+        {
+            "user":{
+                "last_name":"invaliduser",
+                "gender":"male",
+                "email":"invaliduser@test.com"
+            }
+        },
+        {
+            "user":{
+                "first_name": "invaliduser",
+                "gender":"male",
+                "email":"invaliduser@test.com"
+            }
+        },
+        {
+            "user":{
+                "first_name": "invaliduser",
+                "last_name":"invaliduser",
+                "gender":"male"
+            }
+        },
+        {
+            "user":{
+                "first_name": "invaliduser",
+                "last_name":"invaliduser",
+                "email":"invaliduser@test.com"
+            }
+        },
+        {
+            "user":{
+                "first_name": "invaliduser",
+                "last_name": "invaliduser",
+                "gender":"male",
+                "email":"invaliduser@test.com",
+                "dob":"1990-05-05",
+                "phone":"1234567890",
+                "website":"www.mywebsite.com",
+                "address":"xyz street ,Kerala",
+                "status":"active"
+            }
+        },
+        {
+            "user":{
+                "first_name": "invaliduser",
+                "last_name": "invaliduser",
+                "gender":"male",
+                "email":"invaliduser@test.com",
+                "dob":"1990-05-05",
+                "phone":"1234567890",
+                "website":"https://www.mywebsite.com",
+                "address":"xyz street ,Kerala",
+                "status":"abcd"
+            }
+        }
+    ]
+}

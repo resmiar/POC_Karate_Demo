@@ -1,0 +1,34 @@
+{
+    "googlePage": {
+      "searchField": "input[name=q]",
+      "searchResult": "input[name=btnI]",
+      "resultUrl":"https://github.com/intuit/karate"
+    },
+
+    "gitHubLogin": {
+      "userName": "#login_field",
+      "password": "#password",
+      "submitButton": "input[name=commit]",
+      "errorMessageContainer": "#js-flash-container"
+    },
+
+    "healthLogin": {
+      "userName": "#txt-username",
+      "password": "#txt-password",
+      "submitButton": "#btn-login",
+      "makeAppointmentButton":"#btn-make-appointment"
+    },
+
+    "appointmentPage": {
+      "bookAppointmentButton": "#btn-book-appointment",
+      "facilityField": "#combo_facility",
+      "visitDateField": "#txt_visit_date",
+      "commentField":"#txt_comment"
+    },
+
+    "confirmationPage": {
+      "facilityField": "#facility",
+      "visitDateField": "#visit_date",
+      "commentField":"#comment"
+    }
+  }
