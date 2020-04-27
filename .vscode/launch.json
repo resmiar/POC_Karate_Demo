@@ -11,7 +11,7 @@
             "request": "launch",
             "feature": "${command:karateRunner.getDebugFile}",
             "karateOptions": "",
-            "karateCli": "mvn test-compile exec:java '-Dexec.mainClass=com.intuit.karate.cli.Main' '-Dexec.args=-d' '-Dexec.classpathScope=test'"
+            "karateCli": "mvn test-compile exec:java -Dexec.mainClass=com.intuit.karate.cli.Main -Dexec.args=-d -Dexec.classpathScope=test"
         }
     ]
 }

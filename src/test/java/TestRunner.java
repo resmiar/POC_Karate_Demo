@@ -4,7 +4,7 @@ public class TestRunner {
     
     @Karate.Test
     Karate testTags() {
-        return Karate.run().tags("@test").relativeTo(getClass());
+        return Karate.run().tags("@test1").relativeTo(getClass());
     }
 
 }

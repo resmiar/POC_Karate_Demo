@@ -1,17 +1,34 @@
 {
-    "testAccounts": {
-      "numTransactions": "input[name=numTransactions]",
-      "submit": "#submitButton"
+    "googlePage": {
+      "searchField": "input[name=q]",
+      "searchResult": "input[name=btnI]",
+      "resultUrl":"https://github.com/intuit/karate"
     },
-    "leftNav": {
-      "home": "{span}Home",
-      "invoices": "{span}Invoices",
-      "transactions": "{span}Transactions"
+
+    "gitHubLogin": {
+      "userName": "#login_field",
+      "password": "#password",
+      "submitButton": "input[name=commit]",
+      "errorMessageContainer": "#js-flash-container"
     },
-    "transactions": {
-      "addFirst": "#login_field",
-      "descriptionInput": ".description-cell input",
-      "description": ".description-cell .header5",
-      "amount": ".amount-cell input"
+
+    "healthLogin": {
+      "userName": "#txt-username",
+      "password": "#txt-password",
+      "submitButton": "#btn-login",
+      "makeAppointmentButton":"#btn-make-appointment"
+    },
+
+    "appointmentPage": {
+      "bookAppointmentButton": "#btn-book-appointment",
+      "facilityField": "#combo_facility",
+      "visitDateField": "#txt_visit_date",
+      "commentField":"#txt_comment"
+    },
+
+    "confirmationPage": {
+      "facilityField": "#facility",
+      "visitDateField": "#visit_date",
+      "commentField":"#comment"
     }
   }

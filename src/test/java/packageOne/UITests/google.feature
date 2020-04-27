@@ -1,23 +1,23 @@
 Feature: web-browser automation
     for help, see: https://github.com/intuit/karate/wiki/ZIP-Release
 
-Background:
-  #* configure driver = { type: 'chrome' }
-  * configure driver = { timeout: 200000, type: 'chrome' }
+Background: 
+  Given configure driver = { timeout: 500000, type: browserName }
   * call read 'locators.json'
 
-@test
-Scenario: try to login to github
-    and then do a google search
+@invalidLogin, @test 
+Scenario: Validate error message for gitHub invalid login
 
-  Given driver 'https://github.com/login'
-  And input(transactions.addFirst, 'dummy')
-  And input('#password', 'world')
-  When submit().click("input[name=commit]")
-  Then match html('#js-flash-container') contains 'Incorrect username or password.'
+  Given driver UrlBase+'login'
+  And input(gitHubLogin.userName, 'dummy')
+  And input(gitHubLogin.password, 'world')
+  When submit().click(gitHubLogin.submitButton)
+  Then match html(gitHubLogin.errorMessageContainer) contains 'Incorrect username or password.'
   
-
-  Given driver 'https://google.com'
-  And input("input[name=q]", 'karate dsl')
-  When submit().click("input[name=btnI]")
-  Then waitForUrl('https://github.com/intuit/karate')
+@googleSearch, @test 
+Scenario: Validate google search returns gitHub page
+  Given driver SecondaryUrl
+  And input(googlePage.searchField, 'karate dsl')
+  When submit().click(googlePage.searchResult)
+  Then waitForUrl(googlePage.resultUrl)
+  And match driver.url contains googlePage.resultUrl
