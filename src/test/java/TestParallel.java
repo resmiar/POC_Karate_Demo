@@ -14,7 +14,7 @@ class TestParallel {
 
     @Test
     void testParallel() {
-        Results results = Runner.path("classpath:PackageOne").tags("@test").parallel(5);
+        Results results = Runner.path("classpath:PackageOne").tags("@test").parallel(2);
         TestParallel.generateReport(results.getReportDir());
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
