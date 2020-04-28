@@ -29,6 +29,9 @@
     "confirmationPage": {
       "facilityField": "#facility",
       "visitDateField": "#visit_date",
-      "commentField":"#comment"
+      "commentField":"#comment",
+      "sideMenuButton": "#menu-toggle",
+      "logout":"{a}Logout"
+  
     }
   }
