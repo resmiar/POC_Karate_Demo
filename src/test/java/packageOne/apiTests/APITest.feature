@@ -25,7 +25,7 @@ Feature: To verify basic features of the application are working
       | testUser  |
       | UserWithAllDetails  |
     
-  @updateuser, @test
+  @updateuser @test
   Scenario: Update existing user details
     Given path 'users'
     When request testData.testUser
@@ -42,7 +42,7 @@ Feature: To verify basic features of the application are working
     And match response['result'] contains testData.UserWithAllDetails
     * call read('delete-user.feature') {'User_ID':'#(userid)'}
   
-  @updateInvalidUserData, @test
+  @updateInvalidUserData @test
   Scenario Outline: Verify user data cannot be updated with invalid data
     Given path 'users'
     When request testData.testUser
@@ -65,7 +65,7 @@ Feature: To verify basic features of the application are working
       | UserWithInvalidWebsite |
       | UserWithInvalidStatus |
 
-  @userdataValidation, @test
+  @userdataValidation @test
   Scenario Outline: Verify invalid user data cannot be added
     Given path 'users'
     When request <user>

@@ -5,7 +5,7 @@ Background:
   Given configure driver = { timeout: 500000, type: browserName }
   * call read 'locators.json'
 
-@invalidLogin, @test 
+@invalidLogin @test 
 Scenario: Validate error message for gitHub invalid login
 
   Given driver UrlBase+'login'
@@ -14,9 +14,10 @@ Scenario: Validate error message for gitHub invalid login
   When submit().click(gitHubLogin.submitButton)
   Then match html(gitHubLogin.errorMessageContainer) contains 'Incorrect username or password.'
   
-@googleSearch, @test 
+@googleSearch @test 
 Scenario: Validate google search returns gitHub page
   Given driver SecondaryUrl
+
   And input(googlePage.searchField, 'karate dsl')
   When submit().click(googlePage.searchResult)
   Then waitForUrl(googlePage.resultUrl)

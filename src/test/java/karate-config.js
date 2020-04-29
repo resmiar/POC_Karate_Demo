@@ -13,9 +13,9 @@ function fn() {
     apiKey:'Bearer MdrA7WFOF1QXqEXmSIOYTUjzOa7Iw0oxUZWz',
     browserName: 'chrome'
   };
-  // don't waste time waiting for a connection or if servers don't respond within 5 seconds
+
   karate.configure('connectTimeout', 5000);
   karate.configure('readTimeout', 5000);
-  // karate.configure('retry', { count: 6, interval: 1000 })
+  karate.configure('retry', { count: 10, interval: 5000 });
   return config;
 }

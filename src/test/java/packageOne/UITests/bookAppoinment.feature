@@ -5,10 +5,10 @@ Background:
   * call read 'locators.json'
   * call read 'testDataUI.json'
 
-@bookAppointmentForJan, @test
+@bookAppointmentFixedDate @test
 Scenario: Book appointments for hard coded data
 
-  Given call read('healthLogin.feature')
+  Given call read('healthLogin.feature@validLogin')
 
   And select(appointmentPage.facilityField, 1)
   And input(appointmentPage.commentField, 'Appointment for Jan First')
@@ -17,13 +17,17 @@ Scenario: Book appointments for hard coded data
   When submit().click(appointmentPage.bookAppointmentButton)
   And waitForUrl(healthUrl+'/appointment.php#summary')
 
-  Then waitForText(confirmationPage.visitDateField, '01/01/2020')
+  Then match text(confirmationPage.visitDateField) contains '01/01/2020'
+  And match text(confirmationPage.facilityField) contains 'Hongkong CURA Healthcare Center'
+  And match text(confirmationPage.commentField) contains 'Appointment for Jan First'
+  
+  And call read('healthLogin.feature@logOut')
 
   
-@bookAppointmentMultipleDates, @test1
+@bookAppointmentMultipleDates @test
   Scenario Outline:Book appointments for using data driven scenario outline
 
-  Given call read('healthLogin.feature')
+  Given call read('healthLogin.feature@validLogin')
 
   And select(appointmentPage.facilityField, <Facility>)
   And input(appointmentPage.commentField, <Comment>)
@@ -32,9 +36,13 @@ Scenario: Book appointments for hard coded data
   When submit().click(appointmentPage.bookAppointmentButton)
   And waitForUrl(healthUrl+'/appointment.php#summary')
 
-  Then waitForText(confirmationPage.visitDateField, <Date>)
-  And waitForText(confirmationPage.facilityField, <FacilityName>)
+  Then match text(confirmationPage.visitDateField) contains <Date>
+  And match text(confirmationPage.facilityField) contains <FacilityName>
+  And match text(confirmationPage.commentField) contains <Comment>
+
+  And call read('healthLogin.feature@logOut')
+
   Examples:
-      | Facility| FacilityName                    |Comment                             |Date        |
-      | 1       |'Tokyo CURA Healthcare Center'   |'This is appointmnt for Jan Second' |'02/01/2020'|
-      | 2       |'Hongkong CURA Healthcare Center'|'This is appointmnt for Jan Third'  |'03/01/2020'|
+      | Facility| FacilityName                    |Comment                              |Date        |
+      | 0       |'Tokyo CURA Healthcare Center'   |'This is appointment for Jan Second' |'02/01/2020'|
+      | 1       |'Hongkong CURA Healthcare Center'|'This is appointment for Jan Third'  |'03/01/2020'|
