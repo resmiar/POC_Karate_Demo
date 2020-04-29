@@ -14,7 +14,8 @@ Feature: To verify basic features of the application are working
     When request testData.<user>
     And method post
     Then status 200
-    * match response['_meta'] contains testData.addUsersuccessMsg
+    * match response._meta contains testData.addUsersuccessMsg
+    * print response.result
     # And match response['_meta'] contains {'code':201} //not getting 201 status because of automatict redirect after post request
     * def userid = response['result']['id']
     And match response['result'] contains testData.<user>
@@ -74,3 +75,24 @@ Feature: To verify basic features of the application are working
     And match response['_meta'] contains {'code':422}
     Examples:
       | testData.invalidUsers   |
+
+  @parsejson
+  Scenario: json parsing demo
+    Given path 'users'
+    When method get
+    Then status 200
+    * print response._meta
+    * def result = $response.result[*].email
+    * print response
+    * print result
+    Then match each result == '#regex .*@.*\..*'
+    * def users = $response.result
+    * print users
+    Then match each users contains {first_name:'#string', gender:'#regex ^male|female$' ,dob:'#regex \\d{4}-\\d{2}-\\d{2}',website:'#ignore'} //#value - is a marker
+
+  @failretrydemo
+  Scenario: Fail retry demo
+    * configure retry = { count: 5, interval: 1000 }
+    Given path 'users',0
+    And retry until response._meta.code == 200
+    When method get
