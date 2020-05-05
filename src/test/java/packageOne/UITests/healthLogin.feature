@@ -5,6 +5,7 @@ Background:
   * configure retry = { count: 5, interval: 5000 }
   * call read 'locators.json'
   * call read 'testDataUI.json'
+  * call read("classpath:packageOne/EncryptDecrypt.js")
 
 @validLogin @ignore 
 Scenario: Login to healthcare app
@@ -14,7 +15,8 @@ Scenario: Login to healthcare app
   And waitForUrl(healthUrl+'/profile.php#login')
 
   And input(healthLogin.userName, healthLoginData.userName)
-  And input(healthLogin.password, healthLoginData.password)
+  * def passwd = call decrypt  healthLoginData.password //decrypting encrypted password
+  And input(healthLogin.password, passwd)
   When submit().click(healthLogin.submitButton)
   
   And waitForUrl(healthUrl+'/#appointment')

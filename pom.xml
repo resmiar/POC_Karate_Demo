@@ -19,6 +19,13 @@
   </properties>
 
   <dependencies>
+
+    <dependency>
+      <groupId>com.intuit.karate</groupId>
+      <artifactId>karate-gatling</artifactId>
+      <version>0.9.6.RC2</version>
+    </dependency>
+
     <dependency>
        <groupId>com.intuit.karate</groupId>
        <artifactId>karate-apache</artifactId>
@@ -88,6 +95,25 @@
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
+        </plugin>
+        <plugin>
+          <groupId>io.gatling</groupId>
+          <artifactId>gatling-maven-plugin</artifactId>
+          <version>3.0.5</version>
+          <configuration>
+          <simulationsFolder>src/test/java</simulationsFolder>
+          <includes>
+              <include>mock.APIPerformaceTest</include>
+          </includes>
+          </configuration>
+          <executions>
+              <execution>
+                  <phase>test</phase>
+                  <goals>
+                      <goal>test</goal>
+                  </goals>
+              </execution>
+          </executions>  
         </plugin>
       </plugins>
     </pluginManagement>
