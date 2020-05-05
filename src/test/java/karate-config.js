@@ -10,7 +10,7 @@ function fn() {
     SecondaryUrl: 'https://google.com/',
     healthUrl: 'https://katalon-demo-cura.herokuapp.com',
     apiURL: 'https://gorest.co.in/public-api',
-    apiKey:'Bearer MdrA7WFOF1QXqEXmSIOYTUjzOa7Iw0oxUZWz',
+    apiKey:'cEc/q1v4hTXyTmYkQHgTtC7n9w9xCOewJU/NDjmQgVTt3cHPtXi1nucADq7mxL/8',
     browserName: 'chrome'
   };
 

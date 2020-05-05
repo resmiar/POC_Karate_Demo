@@ -3,9 +3,11 @@ Feature: To verify basic features of the application are working
 
   Background:
     Given url apiURL
-    * configure headers = { Authorization: '#(apiKey)' }
     * def testData = read("testData.json")
+    * call read("classpath:packageOne/EncryptDecrypt.js")
     # * configure followRedirects = false
+    * def apiToken = call decrypt  apiKey // for encryption use "* def encrypted = call encrypt  text"
+    * configure headers = { Authorization: '#(apiToken)' }
 
   @addanddelete @test
   Scenario Outline:Verify add and Delete user functionalities are working
